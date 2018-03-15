@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Cities list </title>
+	<script>
+     window.onload = function(){
+     var cities = document.getElementsByTagName('li');
+     for(var i=0; i<cities; i++){
+       var cityName = cities(i).innerHTML;
+	   var xhr = new XMLHttpRequest();
+	   xhr.open('GET', "http://api.openweathermap.org/data/2.5/weather?APPID=a2fbdc33f4b42915adf6e30e2cf6f9ac&q=" + cityName);
+	   xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var result = JSON.parse(xhr.responseText);
+			cities(i).innerHTML = cityName +" temp : " + result.main.temp;
+        }
+	  }
+	xhr.send();
+    }
+  }
+     	
+     </script>
+</head>
+<body>
+     <ul>
+        <li>Bangalore</li>
+        <li>Chennai</li>
+        <li>Delhi</li>
+     </ul>
+
+</body>
+</html>

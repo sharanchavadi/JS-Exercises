@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Guess game </title>
+</head>
+<body>
+
+<script>
+	
+	var name = prompt("Enter your name");
+	var targetNumber= Math.round(Math.random() * 100);
+	console.log(targetNumber);
+	var playerGuess = 0;
+	var maxGuess = 10;
+	while(playerGuess < maxGuess){
+		var guess = Number(prompt("Guess my number"));
+		var max = 100
+		var min = 1
+		if(guess < targetNumber){
+           console.log("oops!!! your guess was low");
+           console.log("guess between "+ guess +"to"+max);
+           min = 
+		}else if(guess > targetNumber){
+           console.log("oops!!! your guess was high");
+           console.log("guess between "+ min + "to" + guess);
+		}else {
+			console.log("You guessed it right " + name + " the number is " + targetNumber);
+			break;
+        }
+        playerGuess++;
+	}
+</script>
+</body>
+</html>
